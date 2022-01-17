@@ -38,7 +38,7 @@ public class Input
 		doubleOne = keyboard.nextDouble();
 
 		
-		System.out.print("Enter a double:: ");
+		System.out.print("Enter a double :: ");
 		doubleTwo = keyboard.nextDouble();
 		
 		
@@ -46,7 +46,7 @@ public class Input
 		floatOne = keyboard.nextFloat();
 
 		
-		System.out.print("Enter a float:: ");
+		System.out.print("Enter a float :: ");
 		floatTwo = keyboard.nextFloat();
 		
 		
@@ -54,7 +54,7 @@ public class Input
 		shortOne = keyboard.nextShort();
 
 		
-		System.out.print("Enter a short:: ");
+		System.out.print("Enter a short :: ");
 		shortTwo = keyboard.nextShort();
 
 		
@@ -62,7 +62,7 @@ public class Input
 		byteOne = keyboard.nextByte();
 
 		
-		System.out.print("Enter a byte:: ");
+		System.out.print("Enter a byte :: ");
 		byteTwo = keyboard.nextByte();
 
 
@@ -70,7 +70,7 @@ public class Input
 		longOne = keyboard.nextLong();
 
 		
-		System.out.print("Enter a long:: ");
+		System.out.print("Enter a long :: ");
 		longTwo = keyboard.nextLong();
 
 
@@ -78,7 +78,7 @@ public class Input
 		charOne = keyboard.next().charAt(0);
 
 		
-		System.out.print("Enter a char:: ");
+		System.out.print("Enter a char :: ");
 		charTwo = keyboard.next().charAt(0);
 		
 		
@@ -86,7 +86,7 @@ public class Input
 		booleanOne = keyboard.nextBoolean();
 
 		
-		System.out.print("Enter a boolean:: ");
+		System.out.print("Enter a boolean :: ");
 		booleanTwo = keyboard.nextBoolean();
 
 
@@ -94,7 +94,7 @@ public class Input
 		stringOne = keyboard.next();
 
 		
-		System.out.print("Enter a string:: ");
+		System.out.print("Enter a string :: ");
 		stringTwo = keyboard.next();
 
 
