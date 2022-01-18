@@ -1,7 +1,7 @@
 //© A+ Computer Science  -  www.apluscompsci.com
-//Name -
-//Date -
-//Class -
+//Name - Karen Bei
+//Date - 1/18/22
+//Class - APCSA P1
 //Lab  - 
 
 public class LineRunner
