@@ -14,8 +14,27 @@ public class DistanceRunner
 {
 	public static void main( String[] args )
 	{
+		int x1;
+		int y1;
+		int x2; 
+		int y2;
+		
+		Scanner myScanner = new Scanner(System.in);
+		
+		System.out.println("Enter x1: ");
+		x1 = myScanner.nextInt();
+		System.out.println("Enter y1: ");
+		y1 = myScanner.nextInt();
+		System.out.println("Enter x2: ");
+		x2 = myScanner.nextInt();
+		System.out.println("Enter y2: ");
+		y2 = myScanner.nextInt();
+
 		//add test cases	
-		// can call toString by instantiating new object
+		Distance test1 = new Distance(); 
+		
+		Distance test2 = new Distance();
+		//can call toString by instantiating new object
 			
 	}
 }
