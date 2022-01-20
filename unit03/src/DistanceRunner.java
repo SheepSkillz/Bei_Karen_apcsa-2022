@@ -1,4 +1,4 @@
-//(c) A+ Computer Science
+x//(c) A+ Computer Science
 //www.apluscompsci.com
 
 //Name -
@@ -15,6 +15,7 @@ public class DistanceRunner
 	public static void main( String[] args )
 	{
 		//add test cases	
+		// can call toString by instantiating new object
 			
 	}
 }
