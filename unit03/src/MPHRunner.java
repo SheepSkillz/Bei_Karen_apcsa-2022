@@ -30,7 +30,9 @@ public class MPHRunner
 		test.print();
 		
 		//add more test cases
-		
+		MilesPerHour test1 = new MilesPerHour(dist, hrs, mins);
+		test1.calcMPH();
+		test1.print();
 		
 	}
 }
