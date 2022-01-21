@@ -38,20 +38,20 @@ public class Quadratic
 
 	public void calcRoots( )
 	{
-		double rootOne = (-b + Math.sqrt(Math.pow(b, 2.0) - 4.0 * a * c)) / 2.0 / a;
-		double rootTwo = (-b - Math.sqrt(Math.pow(b, 2.0) - 4.0 * a * c)) / 2.0 / a;
+		rootOne = (-b + Math.sqrt(Math.pow(b, 2.0) - 4.0 * a * c)) / 2.0 / a;
+		rootTwo = (-b - Math.sqrt((Math.pow(b, 2.0)) - (4.0 * a * c))) / 2.0 / a;
 	}
 
     public void print()
     {
-    	System.out.printf("root one = " + "%.3f\n", rootOne);
-    	System.out.printf("root two = " + "%.3f\n", rootTwo);
+    	System.out.printf("root one = " + "%.2f\n", rootOne);
+    	System.out.printf("root two = " + "%.2f\n", rootTwo);
     }
     
     //complete either print or the toString()
 
 	public String toString()
 	{
-		return "root one = " + String.format("%.3f\n", rootOne) + "\n" + "root two = " + String.format("%.3f\n", rootTwo);
+		return "" + "root one = " + String.format("%.2f\n", rootOne) + "root two = " + String.format("%.2f\n", rootTwo);
 	}
 }

@@ -25,13 +25,13 @@ public class QuadraticRunner
 		System.out.println("Enter c: ");
 		c= myScanner.nextInt();
 		
-		Quadratic test1 = new Quadratic();
+		Quadratic test1 = new Quadratic(a, b, c); // cannot use default constructor bc all values 0 -> return NaN
 		test1.calcRoots();
 		test1.print();
 		
 		Quadratic test2 = new Quadratic(a, b, c);
 		test2.calcRoots();
-		test2.toString();
+		System.out.println(test2.toString()); 
 		
 	}
 }
