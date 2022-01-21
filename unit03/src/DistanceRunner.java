@@ -1,4 +1,4 @@
-x//(c) A+ Computer Science
+//(c) A+ Computer Science
 //www.apluscompsci.com
 
 //Name -
@@ -20,7 +20,7 @@ public class DistanceRunner
 		int y2;
 		
 		Scanner myScanner = new Scanner(System.in);
-		
+	
 		System.out.println("Enter x1: ");
 		x1 = myScanner.nextInt();
 		System.out.println("Enter y1: ");
@@ -29,12 +29,19 @@ public class DistanceRunner
 		x2 = myScanner.nextInt();
 		System.out.println("Enter y2: ");
 		y2 = myScanner.nextInt();
-
-		//add test cases	
-		Distance test1 = new Distance(); 
+ 
 		
-		Distance test2 = new Distance();
+		//add test cases	
+		Distance test1 = new Distance(x1, y1, x2, y2); // watch for the numbers after
+		test1.calcDistance();
+		test1.print();
+		// order of code matters!!
+		// print() cannot appear before calcDistance() because will output 0
+		
+		
 		//can call toString by instantiating new object
-			
+		Distance test2 = new Distance(x1, y1, x2, y2); 
+		test2.calcDistance();
+		System.out.println(test2.toString());
 	}
 }

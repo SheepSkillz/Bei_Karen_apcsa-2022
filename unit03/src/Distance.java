@@ -40,33 +40,34 @@ public class Distance
 		yTwo = y2;
 	}
 
-	public void calcDistance() // public String determineClosest() -> finds closest point
+	public void calcDistance() 
 	{
-		double xDistance = x2 - x1;
+		double xDistance = (double) (xTwo - xOne);
 		xDistance = Math.pow(xDistance, 2);
 		
-		double yDistance = y2 - y1;
+		double yDistance = (double) (yTwo - yOne);
 		yDistance = Math.pow(yDistance, 2);
 		
 		double sumOfXY = xDistance + yDistance;
-		distance = Math.sqrt(sumOfXY);
+		
+		distance = Math.sqrt(sumOfXY); // automatically rounds
+				//Math.sqrt(sumOfXY);
 	}
 	
 	public double getDistance() // getter or accessor method
 	{
 		return distance;
 	}
-	
+		
 	public void print()
 	{
-		System.out.printf("%.3f\n", distance);
-		// System.out.println(String.format("%.3f", distance));
+		System.out.printf("distance = " + "%.3f\n", distance);
 	}
 	
 	//complete print or the toString
 
 	public String toString() // accessor 
 	{
-		return "";
+		return "distance = " + String.format("%.3f\n", distance); // formats double as string
 	}
 }
