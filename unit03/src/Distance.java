@@ -62,6 +62,7 @@ public class Distance
 	public void print()
 	{
 		System.out.printf("distance = " + "%.3f\n", distance);
+		System.out.println();
 	}
 	
 	//complete print or the toString

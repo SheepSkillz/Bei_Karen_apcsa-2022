@@ -46,6 +46,7 @@ public class Quadratic
     {
     	System.out.printf("root one = " + "%.2f\n", rootOne);
     	System.out.printf("root two = " + "%.2f\n", rootTwo);
+    	System.out.println("\n\n");
     }
     
     //complete either print or the toString()

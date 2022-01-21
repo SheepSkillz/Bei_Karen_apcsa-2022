@@ -43,6 +43,7 @@ public class MilesPerHour
 	public void print()
 	{
 		System.out.println(distance + " miles in " + hours + " hour and " + minutes + " minutes = " + (int) mph + " MPH.");
+		System.out.println("\n\n");
 	}
 	
 	//create a print or toString or both
