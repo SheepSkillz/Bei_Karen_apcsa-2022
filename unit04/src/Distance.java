@@ -16,8 +16,7 @@ public class Distance
 
 	public Distance()
 	{
-
-
+		
 	}
 
 	public Distance(int xOne, int yOne, int xTwo, int yTwo)
