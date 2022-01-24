@@ -17,6 +17,8 @@ public class BigOrSmallRunner
 		System.out.println( BigOrSmall.check( 1, 0 ) );	
 		System.out.println( BigOrSmall.check( 3, 5) );	
 		System.out.println( BigOrSmall.check( 5, 3 ) );	
-		System.out.println( BigOrSmall.check( 5342, 323 ) );						
+		System.out.println( BigOrSmall.check( 5342, 323 ) );
+		
+	
 	}
 }
