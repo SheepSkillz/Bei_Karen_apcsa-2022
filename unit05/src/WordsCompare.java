@@ -36,7 +36,7 @@ public class WordsCompare
 
 	public String toString()
 	{
-		if(compare<0)
+		if(compare<0) // doesn't take the compare() function, only the var
 		{
 			return wordOne + " should be placed before " + wordTwo + "\n";
 		}
