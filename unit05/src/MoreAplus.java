@@ -8,6 +8,6 @@ public class MoreAplus
 {
    public static String go( String a )
 	{
-		return "add code here";
+		return a.indexOf("aplus");
 	}
 }

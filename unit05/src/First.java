@@ -8,7 +8,12 @@ public class First
 {
    public static String go( String a )
 	{
-		return "";
+	   for (int i = 1; i < a.length(); i++) {
+		   if (a.substring(i, i + 1).equals(a.substring(0, 1))) {
+			   return "yes";
+		   }
+	   }
+	   return "no";
 	}
 }
 
