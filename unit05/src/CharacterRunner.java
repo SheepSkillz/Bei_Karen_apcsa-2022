@@ -21,10 +21,15 @@ public class CharacterRunner
 		out.println(test);   //A
 
 		//add more test cases
-		
-		
-		
-		
+		for (int i = 0; i < 8; i++) {
+			out.print("Enter a letter :: ");
+			letter = keyboard.next().charAt(0);
+			test.setChar(letter); // reference the new object
+			out.println(test);   
+			// 1, a, 7, D, 2, X, z, 9
+		}
+			
+			
 		
 		
 		

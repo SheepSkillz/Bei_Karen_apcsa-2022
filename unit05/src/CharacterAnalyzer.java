@@ -15,43 +15,68 @@ public class CharacterAnalyzer
 
 	public CharacterAnalyzer()
 	{
+		setChar('0');
 	}
 
 	public CharacterAnalyzer(char c)
 	{
+		setChar(c);
 	}
 
 	public void setChar(char c)
 	{
+		theChar = c;
 	}
 
 	public char getChar()
 	{
-		return '-';
+		return theChar;
 	}
 
 	public boolean isUpper( )
 	{
-		return false;
+		if (theChar >= 65 && theChar <= 90)
+			return true;
+		else {
+			return false;
+		}
 	}
 
 	public boolean isLower( )
 	{
-		return false;
+		if (theChar >= 97 && theChar <= 122)
+			return true;
+		else {
+			return false;
+		}
 	}
 	
 	public boolean isNumber( )
 	{
-		return false;
+		if (theChar >= 48 && theChar <= 57)
+			return true;
+		else {
+			return false;
+		}
 	}	
 
 	public int getASCII( )
 	{
-		return 0;
+		return theChar;
 	}
 
 	public String toString()
 	{
-		return ""+getChar() + " is a lowercase character. ASCII == " + getASCII() + "\n";	  
+		if (isUpper()) {
+			return "" + getChar() + " is an uppercase character. ASCII == " + getASCII() + "\n";	 
+		}
+		else if (isLower()) {
+			return "" + getChar() + " is a lowercase character. ASCII == " + getASCII() + "\n";	
+		}
+		else if (isNumber()) {
+			return "" + getChar() + " is a number. ASCII == " + getASCII() + "\n";	 
+		}
+		else 
+			return "";
 	}
 }
