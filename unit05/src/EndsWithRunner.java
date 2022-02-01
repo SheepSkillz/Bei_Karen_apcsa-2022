@@ -12,7 +12,7 @@ public class EndsWithRunner
 {
 	public static void main ( String[] args )
 	{
-		StringUtilities test = new StringUtilities();
+		StringUtilities test = new StringUtilities(); // have to define new object
 		
 		System.out.println( test.endsWith("chicken", "en"));
 		System.out.println( test.endsWith("chicken", "dog"));
