@@ -13,7 +13,10 @@ public class CoolNumbers
 	 */
 	public static boolean isCoolNumber( int num )
 	{
-		 return false;
+		if ((num % 3 == 1) && (num % 4 == 1) && (num % 5 == 1) && (num % 6 == 1)) {
+			return true;
+		}
+		return false;
 	}
 	
 		/*
@@ -22,6 +25,12 @@ public class CoolNumbers
 	 */
 	public static int countCoolNumbers( int stop )
 	{
-		return 0;
+		int count = 0;
+		for (int i = 6; i < stop; i++) {
+			if (isCoolNumber(i)) {
+				count += 1;
+			}
+		}
+		return count;
 	}
 }

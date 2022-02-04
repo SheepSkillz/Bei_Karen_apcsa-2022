@@ -8,6 +8,15 @@ public class MultTens
 {
 	public static String go(  int x )
 	{
-		return "code goes here";
+		if (x <= 0) {
+			return "aplus";
+		}
+		else {
+			String tens = "";
+			for (int i = 1; i <= x; i++) {
+				tens += i * 10;
+			}
+			return tens;
+		}
 	}
 }
