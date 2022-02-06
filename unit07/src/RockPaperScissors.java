@@ -12,6 +12,7 @@ public class RockPaperScissors
 
 	public RockPaperScissors()
 	{
+		System.out.println("helloooooo");
 	}
 
 	public RockPaperScissors(String player)
