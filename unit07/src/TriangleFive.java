@@ -50,7 +50,9 @@ public class TriangleFive
 			 * x
 			 */
 				if (letter + j > 90) {
-					l = (char) ('A' + letter + j - 91) ;
+					l = (char) ('A' - 1 + letter + j - 90) ;
+					// use A = 65, then subtract one to get back to 64 as reference
+					// when starting with 64, can just add one bc will get 65 = A
 				}
 				else {
 					l = (char) (letter + j);
