@@ -6,6 +6,10 @@
 public class SumLastRunner
 {
 	public static void main( String args[] )
-	{											
+	{
+		RaySumLast test = new RaySumLast();
+		int[] list;
+		// how to call method with array?
+		System.out.println(test.go(list[] {-99,1,2,3,4,5,6,7,8,9,10,5}));
 	}
 }
