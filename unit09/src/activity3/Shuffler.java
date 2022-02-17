@@ -1,3 +1,8 @@
+package activity3;
+
+import activity1.Card; // Need this line if you want to use the class Card from another "package"
+						// however, it is not needed in this exercise, rather use integers to simulate the card
+
 /**
  * This class provides a convenient way to test shuffling methods.
  */
@@ -18,6 +23,10 @@ public class Shuffler {
 	 * Tests shuffling methods.
 	 * @param args is not used.
 	 */
+	
+	private Card cards[]; // no need for this definition though
+	
+	
 	public static void main(String[] args) {
 		System.out.println("Results of " + SHUFFLE_COUNT +
 								 " consecutive perfect shuffles:");
@@ -52,7 +61,6 @@ public class Shuffler {
 		System.out.println();
 	}
 
-
 	/**
 	 * Apply a "perfect shuffle" to the argument.
 	 * The perfect shuffle algorithm splits the deck in half, then interleaves
@@ -61,8 +69,40 @@ public class Shuffler {
 	 */
 	public static void perfectShuffle(int[] values) {
 		/* *** TO BE IMPLEMENTED IN ACTIVITY 3 *** */
-	}
+		
+		// example: 
+		//    initial "deck": 0 1 2 3 4 5 6 7
+		//    result "deck": 4 0 5 1 6 2 7 3
+		
+		// create two sub-decks, one containing the top half, and one containing the bottom half
+		// take one "card" from bottom half and put it into the shuffled deck, then
+		// take another "card" from the top half and put it into the shuffled deck, then
+		// repeat the above two steps for all the "cards"
+		
+		//Initialize shuffled to contain 52 “empty” elements.
+		int[] shuffled = new int[values.length];
+		//Set k to 0.
+		int k = 0;
 
+//		For j = 0 to 25,
+//		- Copy cards[j] to shuffled[k] // these two lines have some weird characters, removed.
+//		- Set k to k+2.
+		for (int j = 0; j < values.length / 2; j++) {
+			shuffled[k] = values[j];
+			k = k + 2;
+		}
+
+//		Set k to 1.
+		k = 1;
+//		For j = 26 to 51,
+//		- Copy cards[j] to shuffled[k]
+//		- Set k to k+2.
+		for (int j = values.length / 2; j < values.length; j++) {
+			shuffled[k] = values[j];
+			k = k + 2;
+		}
+	}
+	
 	/**
 	 * Apply an "efficient selection shuffle" to the argument.
 	 * The selection shuffle algorithm conceptually maintains two sequences
@@ -76,5 +116,8 @@ public class Shuffler {
 	 */
 	public static void selectionShuffle(int[] values) {
 		/* *** TO BE IMPLEMENTED IN ACTIVITY 3 *** */
+		for (int i = 0; i < values.length; i++) {
+			
+		}
 	}
 }

@@ -1,4 +1,9 @@
-import java.util.List;
+//import java.util.List;
+
+package activity2;
+
+import activity1.Card; // do you have to import? 
+
 import java.util.ArrayList;
 
 /**
@@ -32,8 +37,19 @@ public class Deck {
 	 */
 	public Deck(String[] ranks, String[] suits, int[] values) {
 		/* *** TO BE IMPLEMENTED IN ACTIVITY 2 *** */
+		
+		int k = 0;
+		cards = new Card[ranks.length * suits.length];
+		for (int i = 0; i < ranks.length; i++) {
+			for (int j = 0; j < suits.length; j++) {
+				//System.out.println(ranks[i] + " and " + suits[j] + " and " + values[i]);
+				cards[k] = new Card(ranks[i], suits[j], values[i]);
+				k++;
+			}
+		}
+		
+		size = cards.length;
 	}
-
 
 	/**
 	 * Determines if this deck is empty (no undealt cards).
@@ -41,6 +57,7 @@ public class Deck {
 	 */
 	public boolean isEmpty() {
 		/* *** TO BE IMPLEMENTED IN ACTIVITY 2 *** */
+		return size == 0;
 	}
 
 	/**
@@ -49,6 +66,7 @@ public class Deck {
 	 */
 	public int size() {
 		/* *** TO BE IMPLEMENTED IN ACTIVITY 2 *** */
+		return size;
 	}
 
 	/**
@@ -66,6 +84,11 @@ public class Deck {
 	 */
 	public Card deal() {
 		/* *** TO BE IMPLEMENTED IN ACTIVITY 2 *** */
+		while (size != 0) {
+			size = size - 1;
+			return cards[size];
+		}
+		return null;
 	}
 
 	/**
@@ -77,7 +100,8 @@ public class Deck {
 		String rtn = "size = " + size + "\nUndealt cards: \n";
 
 		for (int k = size - 1; k >= 0; k--) {
-			rtn = rtn + cards.get(k);
+			rtn = rtn + cards[k];
+			//rtn = rtn + cards.get(k);
 			if (k != 0) {
 				rtn = rtn + ", ";
 			}
@@ -88,12 +112,15 @@ public class Deck {
 		}
 
 		rtn = rtn + "\nDealt cards: \n";
-		for (int k = cards.size() - 1; k >= size; k--) {
-			rtn = rtn + cards.get(k);
+		for (int k = cards.length - 1; k >= size; k--) {
+		//for (int k = cards.size() - 1; k >= size; k--) {
+			rtn = rtn + cards[k];
+			//rtn = rtn + cards.get(k);
 			if (k != size) {
 				rtn = rtn + ", ";
 			}
-			if ((k - cards.size()) % 2 == 0) {
+			if ((k - cards.length) % 2 == 0) {
+			//if ((k - cards.size()) % 2 == 0) {
 				// Insert carriage returns so entire deck is visible on console.
 				rtn = rtn + "\n";
 			}
