@@ -1,8 +1,5 @@
 package activity3;
 
-import activity1.Card; // Need this line if you want to use the class Card from another "package"
-						// however, it is not needed in this exercise, rather use integers to simulate the card
-
 /**
  * This class provides a convenient way to test shuffling methods.
  */
@@ -12,20 +9,19 @@ public class Shuffler {
 	 * The number of consecutive shuffle steps to be performed in each call
 	 * to each sorting procedure.
 	 */
-	private static final int SHUFFLE_COUNT = 1;
+	private static final int SHUFFLE_COUNT = 4;
 
 	/**
 	 * The number of values to shuffle.
 	 */
-	private static final int VALUE_COUNT = 4;
+	private static final int VALUE_COUNT = 7;
 
 	/**
 	 * Tests shuffling methods.
 	 * @param args is not used.
 	 */
 	
-	private Card cards[]; // no need for this definition though
-	
+	//rather use integers to simulate the card
 	
 	public static void main(String[] args) {
 		System.out.println("Results of " + SHUFFLE_COUNT +
@@ -85,9 +81,9 @@ public class Shuffler {
 		int k = 0;
 
 //		For j = 0 to 25,
-//		- Copy cards[j] to shuffled[k] // these two lines have some weird characters, removed.
+//		- Copy cards[j] to shuffled[k] 
 //		- Set k to k+2.
-		for (int j = 0; j < values.length / 2; j++) {
+		for (int j = 0; j < (values.length + 1) / 2; j++) {
 			shuffled[k] = values[j];
 			k = k + 2;
 		}
@@ -97,9 +93,13 @@ public class Shuffler {
 //		For j = 26 to 51,
 //		- Copy cards[j] to shuffled[k]
 //		- Set k to k+2.
-		for (int j = values.length / 2; j < values.length; j++) {
+		for (int j = (values.length + 1) / 2; j < values.length; j++) {
 			shuffled[k] = values[j];
 			k = k + 2;
+		}
+		
+		for (int i = 0; i < values.length; i++) {
+			values[i] = shuffled[i];
 		}
 	}
 	
@@ -116,8 +116,33 @@ public class Shuffler {
 	 */
 	public static void selectionShuffle(int[] values) {
 		/* *** TO BE IMPLEMENTED IN ACTIVITY 3 *** */
+		int[] shuffled = new int[values.length];
+//		for (int i = 0; i < shuffled.length; i++) {
+//			shuffled[i] = -1;
+//			System.out.println(shuffled[i]);
+//		}
+		int temp;
+		boolean flag = false;
 		for (int i = 0; i < values.length; i++) {
-			
+			int num = (int) (Math.random() * values.length);
+			flag = false; 
+			while (flag == false) {
+				if (values[num] != -1) {
+				// numbers might be 0 - set to evaluate if not equal to a different number
+					shuffled[i] = values[num];
+//					System.out.println(num);
+					values[num] = -1;
+					flag = true;
+				}
+				else {
+					num = (int) (Math.random() * values.length);
+					// returns back to while loop
+				}
+			}	
+		}
+		
+		for (int i = 0; i < values.length; i++) {
+			values[i] = shuffled[i];
 		}
 	}
 }
