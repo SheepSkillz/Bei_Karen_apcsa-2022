@@ -39,8 +39,9 @@ public class Deck {
 		/* *** TO BE IMPLEMENTED IN ACTIVITY 2 *** */
 		
 		int k = 0;
+		//System.out.println("karenkarenkaren " + ranks.length + " " + suits.length);
 		cards = new Card[ranks.length * suits.length];
-		for (int i = 0; i < ranks.length; i++) {
+		for (int i = 0; i <= ranks.length; i++) {
 			for (int j = 0; j < suits.length; j++) {
 				//System.out.println(ranks[i] + " and " + suits[j] + " and " + values[i]);
 				cards[k] = new Card(ranks[i], suits[j], values[i]);
