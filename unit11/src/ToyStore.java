@@ -18,6 +18,7 @@ public class ToyStore
 
 	public void loadToys( String toys )
 	{
+		toyList.add;
 	}
   
   	public Toy getThatToy( String nm )
@@ -27,6 +28,9 @@ public class ToyStore
   
   	public String getMostFrequentToy()
   	{
+  		for (int i = 0; i < toyList.size(); i++) {
+  			
+  		}
   		return "";
   	}  
   
