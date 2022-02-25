@@ -1,10 +1,10 @@
-//import java.util.List;
-
 package activity2;
 
 import activity1.Card; // do you have to import? 
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 
 /**
  * The Deck class represents a shuffled deck of cards.
@@ -16,8 +16,8 @@ public class Deck {
 	/**
 	 * cards contains all the cards in the deck.
 	 */
-	//private List<Card> cards;
-	private Card[] cards;
+	private ArrayList<Card> cards; 
+	//private Card[] cards;
 	
 	/**
 	 * size is the number of not-yet-dealt cards.
@@ -39,17 +39,18 @@ public class Deck {
 		/* *** TO BE IMPLEMENTED IN ACTIVITY 2 *** */
 		
 		int k = 0;
-		//System.out.println("karenkarenkaren " + ranks.length + " " + suits.length);
-		cards = new Card[ranks.length * suits.length];
-		for (int i = 0; i <= ranks.length; i++) {
+//		cards = new Card[ranks.length * suits.length];
+		cards = new ArrayList<Card>();
+		for (int i = 0; i < ranks.length; i++) {
 			for (int j = 0; j < suits.length; j++) {
 				//System.out.println(ranks[i] + " and " + suits[j] + " and " + values[i]);
-				cards[k] = new Card(ranks[i], suits[j], values[i]);
+//				cards[k] = new Card(ranks[i], suits[j], values[i]);
+				cards.add(new Card(ranks[i], suits[j], values[i]));
 				k++;
 			}
 		}
-		
-		size = cards.length;
+		//size = cards.length;
+		size = cards.size();
 	}
 
 	/**
@@ -67,7 +68,8 @@ public class Deck {
 	 */
 	public int size() {
 		/* *** TO BE IMPLEMENTED IN ACTIVITY 2 *** */
-		return size;
+		//return size;
+		return cards.size();
 	}
 
 	/**
@@ -78,13 +80,24 @@ public class Deck {
 		/* *** TO BE IMPLEMENTED IN ACTIVITY 4 *** */
 		/* 
 		 */
-		for (int k = cards.length - 1; k >= 0; k--) {
+//		for (int k = cards.length - 1; k >= 0; k--) {
+//			int num = (int) (Math.random() * k);
+//			Card temp = cards[k];
+//			cards[k] = cards[num];
+//			cards[num] = temp;
+//		}
+//		size = size();
+		
+		for (int k = cards.size() - 1; k >= 0; k--) {
 			int num = (int) (Math.random() * k);
-			Card temp = cards[k];
-			cards[k] = cards[num];
-			cards[num] = temp;
+			Card temp = cards.get(num);
+			cards.set(num, cards.get(k));
+			cards.set(k, temp);
+//			cards.indexOf(k) = cards.get(num); // how to get an index of an array list?
+//			cards.indexOf(num) = temp;
+			//Collections.swap(cards, k, num);
+			
 		}
-		size = size();
 	}
 
 	/**
@@ -96,7 +109,8 @@ public class Deck {
 		/* *** TO BE IMPLEMENTED IN ACTIVITY 2 *** */
 		while (size != 0) {
 			size = size - 1;
-			return cards[size];
+			//return cards[size];
+			return cards.get(size);
 		}
 		return null;
 	}
@@ -110,8 +124,8 @@ public class Deck {
 		String rtn = "size = " + size + "\nUndealt cards: \n";
 
 		for (int k = size - 1; k >= 0; k--) {
-			rtn = rtn + cards[k];
-			//rtn = rtn + cards.get(k);
+			//rtn = rtn + cards[k];
+			rtn = rtn + cards.get(k);
 			if (k != 0) {
 				rtn = rtn + ", ";
 			}
@@ -122,15 +136,15 @@ public class Deck {
 		}
 
 		rtn = rtn + "\nDealt cards: \n";
-		for (int k = cards.length - 1; k >= size; k--) {
-		//for (int k = cards.size() - 1; k >= size; k--) {
-			rtn = rtn + cards[k];
-			//rtn = rtn + cards.get(k);
+		//for (int k = cards.length - 1; k >= size; k--) {
+		for (int k = cards.size() - 1; k >= size; k--) {
+			//rtn = rtn + cards[k];
+			rtn = rtn + cards.get(k);
 			if (k != size) {
 				rtn = rtn + ", ";
 			}
-			if ((k - cards.length) % 2 == 0) {
-			//if ((k - cards.size()) % 2 == 0) {
+			//if ((k - cards.length) % 2 == 0) {
+			if ((k - cards.size()) % 2 == 0) {
 				// Insert carriage returns so entire deck is visible on console.
 				rtn = rtn + "\n";
 			}
