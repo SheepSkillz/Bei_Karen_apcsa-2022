@@ -11,9 +11,18 @@ public class ToyRunner
 	public static void main(String[] args)
 	{
 		Scanner keyboard = new Scanner(System.in);
-		String game = keyboard.next();	
-		Toy toys = new Toy(game);
-				
-	 			
+		String game = keyboard.nextLine();	
+		Toy toys = new Toy();
+
+		toys.setName(game);
+		toys.setCount(1);
+		
+		System.out.println(toys.toString());	
+		
+		game = keyboard.nextLine();	
+		toys.setName(game);
+		toys.setCount(5);
+		
+	 	System.out.println(toys.toString());		
 	}
 }

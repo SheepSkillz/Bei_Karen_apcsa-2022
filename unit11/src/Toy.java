@@ -29,7 +29,7 @@ public class Toy
 	{
 		count = cnt;
 	}
-	
+
 	public String getName()
 	{
 		return name;
@@ -42,6 +42,6 @@ public class Toy
 
 	public String toString()
 	{
-	   return "";
+	   return name + " " + count + "\n";
 	}
 }
