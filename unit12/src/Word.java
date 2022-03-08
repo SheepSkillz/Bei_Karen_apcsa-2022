@@ -5,23 +5,21 @@
 import static java.lang.System.*;
 
 public class Word implements Comparable<Word>
-// goes to compareTo method to implement interface
 {
-	private String word; // collection of Words
+	private String word;
 
 	public Word( String s )
 	{
-		word = new String(s);
+		word = s;
 	}
 
 	public int compareTo( Word rhs )
 	{		
-		// sort by length first
-		// if lengths the same, then alphabetical
+		// only if lengths are the same is it necessary to compare the alpha letters
 		if (word.length() == rhs.word.length()) {
 			return word.compareTo(rhs.word);
 		}
-		else if (word.length() > rhs.word.length()) {
+		if (word.length() > rhs.word.length()) {
 			return 1;
 		}
 		return -1;
@@ -29,6 +27,6 @@ public class Word implements Comparable<Word>
 
 	public String toString()
 	{
-		return "";
+		return word;
 	}
 }
