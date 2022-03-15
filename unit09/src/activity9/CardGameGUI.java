@@ -1,3 +1,5 @@
+package activity9;
+
 import java.awt.Point;
 import java.awt.Graphics;
 import java.awt.Dimension;
@@ -21,6 +23,7 @@ import java.util.ArrayList;
  * This class provides a GUI for solitaire games related to Elevens.
  */
 public class CardGameGUI extends JFrame implements ActionListener {
+	// cardGameGUI = child, JFrame = parent, ActionLister = interface
 
 	/** Height of the game frame. */
 	private static final int DEFAULT_HEIGHT = 302;
@@ -107,7 +110,7 @@ public class CardGameGUI extends JFrame implements ActionListener {
 			}
 		}
 
-		selections = new boolean[board.size()];
+		selections = new boolean[board.size()]; // used to indicate which cards has been clicked
 		initDisplay();
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		repaint();
@@ -285,6 +288,7 @@ public class CardGameGUI extends JFrame implements ActionListener {
 			List<Integer> selection = new ArrayList<Integer>();
 			for (int k = 0; k < board.size(); k++) {
 				if (selections[k]) {
+					// accessing selection - index of the card that was clicked
 					selection.add(new Integer(k));
 				}
 			}
@@ -298,11 +302,14 @@ public class CardGameGUI extends JFrame implements ActionListener {
 			}
 			// Do the replace.
 			board.replaceSelectedCards(selection);
+
+			// check to see if another play is possible -> can continue
 			if (board.isEmpty()) {
 				signalWin();
 			} else if (!board.anotherPlayIsPossible()) {
 				signalLoss();
 			}
+
 			repaint();
 		} else if (e.getSource().equals(restartButton)) {
 			board.newGame();

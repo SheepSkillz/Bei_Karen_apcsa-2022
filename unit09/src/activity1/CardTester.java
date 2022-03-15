@@ -1,5 +1,7 @@
 package activity1; // this line is required as the project is under the package titled "activity 1", not "(default package)"
 
+import activity9.Card;
+
 public class CardTester {
 
 	/**

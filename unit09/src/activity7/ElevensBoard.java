@@ -1,4 +1,8 @@
 import java.util.List;
+
+import activity9.Card;
+import activity9.Deck;
+
 import java.util.ArrayList;
 
 /**
@@ -185,6 +189,17 @@ public class ElevensBoard {
 	 */
 	public boolean isLegal(List<Integer> selectedCards) {
 		/* *** TO BE IMPLEMENTED IN ACTIVITY 9 *** */
+		if (selectedCards.size() == 2) {
+			if (containsPairSum11(selectedCards)) {
+				return true;
+			}
+		}
+		if (selectedCards.size() == 3) {
+			if (containsJQK(selectedCards)) {
+				return true;
+			}
+		}
+		return false;
 	}
 
 	/**
@@ -197,6 +212,12 @@ public class ElevensBoard {
 	 */
 	public boolean anotherPlayIsPossible() {
 		/* *** TO BE IMPLEMENTED IN ACTIVITY 9 *** */
+		// cIndexes is list of values on board - 0 is upper left
+		List<Integer> cIndexes = cardIndexes();
+		if (containsPairSum11(cIndexes) || containsJQK(cIndexes)) {
+			return true;
+		}
+		return false;
 	}
 
 
@@ -217,8 +238,21 @@ public class ElevensBoard {
 	 * @return true if the board entries in selectedCards
 	 *              contain an 11-pair; false otherwise.
 	 */
-	private boolean containsPairSum11(List<Integer> selectedCards) {
+	 public boolean containsPairSum11(List<Integer> selectedCards) {
 		/* *** TO BE IMPLEMENTED IN ACTIVITY 9 *** */
+		
+		// intValue() changes the value of the Object to an int
+		// to be used in the indexing of the array list
+		for (int i = 0; i < selectedCards.size(); i++) {
+			int card1 = selectedCards.get(i).intValue();
+			for (int j = i + 1; j < selectedCards.size(); j++) {
+				int card2 = selectedCards.get(j).intValue();
+				if (selectedCards.get(card1) + selectedCards.get(card2) == 11) {
+					return true;
+				}
+			}
+		}
+		return false;
 	}
 
 	/**
@@ -229,7 +263,27 @@ public class ElevensBoard {
 	 * @return true if the board entries in selectedCards
 	 *              include a jack, a queen, and a king; false otherwise.
 	 */
-	private boolean containsJQK(List<Integer> selectedCards) {
+	 public boolean containsJQK(List<Integer> selectedCards) {
 		/* *** TO BE IMPLEMENTED IN ACTIVITY 9 *** */
+		boolean foundJ = false;
+		boolean foundQ = false;
+		boolean foundK = false;
+		for (int i = 0; i < 3; i++) {
+			if (selectedCards.get(i).intValue() == 11) {
+				foundJ = true;
+			}
+			if (selectedCards.get(i).intValue() == 12) {
+				foundQ = true;
+			}
+			if (selectedCards.get(i).intValue() == 13) {
+				foundK = true;
+			}
+		}
+		if (foundJ && foundQ && foundK) {
+			return true;
+		}
+		else {
+			return false;
+		}
 	}
-}
+} // end class

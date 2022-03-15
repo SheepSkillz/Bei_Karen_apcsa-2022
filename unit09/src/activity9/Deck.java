@@ -1,6 +1,4 @@
-package activity2;
-
-import activity1.Card; // do you have to import? 
+package activity9;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -38,19 +36,20 @@ public class Deck {
 	public Deck(String[] ranks, String[] suits, int[] values) {
 		/* *** TO BE IMPLEMENTED IN ACTIVITY 2 *** */
 		
-		int k = 0;
+//		int k = 0;
 //		cards = new Card[ranks.length * suits.length];
 		cards = new ArrayList<Card>();
 		for (int i = 0; i < ranks.length; i++) {
 			for (int j = 0; j < suits.length; j++) {
-				//System.out.println(ranks[i] + " and " + suits[j] + " and " + values[i]);
-//				cards[k] = new Card(ranks[i], suits[j], values[i]);
-				cards.add(new Card(ranks[i], suits[j], values[i]));
-				k++;
+					//System.out.println(ranks[i] + " and " + suits[j] + " and " + values[i]);
+//					cards[k] = new Card(ranks[i], suits[j], values[i]);
+					cards.add(new Card(ranks[i], suits[j], values[i]));
+//				k++;
 			}
 		}
 		//size = cards.length;
 		size = cards.size();
+		shuffle();
 	}
 
 	/**
@@ -68,8 +67,7 @@ public class Deck {
 	 */
 	public int size() {
 		/* *** TO BE IMPLEMENTED IN ACTIVITY 2 *** */
-		//return size;
-		return cards.size();
+		return size;
 	}
 
 	/**
@@ -89,15 +87,15 @@ public class Deck {
 //		size = size();
 		
 		for (int k = cards.size() - 1; k >= 0; k--) {
-			int num = (int) (Math.random() * k);
+			int num = (int) (Math.random() * (cards.size() - 1));
 			Card temp = cards.get(num);
 			cards.set(num, cards.get(k));
 			cards.set(k, temp);
-//			cards.indexOf(k) = cards.get(num); // how to get an index of an array list?
+//			cards.indexOf(k) = cards.get(num); 
 //			cards.indexOf(num) = temp;
 			//Collections.swap(cards, k, num);
-			
 		}
+		size = cards.size();
 	}
 
 	/**
@@ -107,10 +105,14 @@ public class Deck {
 	 */
 	public Card deal() {
 		/* *** TO BE IMPLEMENTED IN ACTIVITY 2 *** */
+//		shuffle();
 		while (size != 0) {
 			size = size - 1;
 			//return cards[size];
+//			Card temp = cards.get(size);
 			return cards.get(size);
+			//return temp;
+			
 		}
 		return null;
 	}

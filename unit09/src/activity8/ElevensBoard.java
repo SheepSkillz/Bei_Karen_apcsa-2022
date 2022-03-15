@@ -1,5 +1,3 @@
-package activity9;
-
 import java.util.List;
 import java.util.ArrayList;
 
@@ -56,17 +54,6 @@ public class ElevensBoard extends Board {
 	@Override
 	public boolean isLegal(List<Integer> selectedCards) {
 		/* *** TO BE IMPLEMENTED IN ACTIVITY 9 *** */
-		if (selectedCards.size() == 2) {
-			if (containsPairSum11(selectedCards)) {
-				return true;
-			}
-		}
-		if (selectedCards.size() == 3) {
-			if (containsJQK(selectedCards)) {
-				return true;
-			}
-		}
-		return false;
 	}
 
 	/**
@@ -80,12 +67,6 @@ public class ElevensBoard extends Board {
 	@Override
 	public boolean anotherPlayIsPossible() {
 		/* *** TO BE IMPLEMENTED IN ACTIVITY 9 *** */
-		// cIndexes is list of values on board - 0 is upper left
-		List<Integer> cIndexes = cardIndexes();
-		if (containsPairSum11(cIndexes) || containsJQK(cIndexes)) {
-			return true;
-		}
-		return false;
 	}
 
 	/**
@@ -98,35 +79,7 @@ public class ElevensBoard extends Board {
 	 */
 	private boolean containsPairSum11(List<Integer> selectedCards) {
 		/* *** TO BE IMPLEMENTED IN ACTIVITY 9 *** */
-		// intValue() changes the value of the Object to an int
-		// to be used in the indexing of the array list
-		
-		// Error 1:
-//		for (int i = 0; i < selectedCards.size(); i++) {
-//			int card1 = selectedCards.get(i).intValue();
-//			for (int j = i + 1; j < selectedCards.size(); j++) {
-		// when i = selectedCards.size() - 1;
-		// then j = selectedCards.size(), out of bound access !!!
-		
-		// Error 2:
-//		if (selectedCards.get(card1).intValue() + selectedCards.get(card2).intValue() == 11) {
-		// if only two cards are there, the 3rd card with face value 5, and the 8th card with value 6
-		// card1 = selectedCards.get(i).intValue() already returns the card index, e.g. 3
-		// selectedCards.get(card1).intValue() tries to access the access the 3rd card in selectedCard, out of bound !!!
-		// Need to get the 3rd card from the whole deck of cards on the board by using the cardAt(index) method
-		
-		for (int i = 0; i < selectedCards.size() - 1 ; i++) {
-			int card1 = selectedCards.get(i).intValue();
-			for (int j = i + 1; j < selectedCards.size(); j++) {
-				int card2 = selectedCards.get(j).intValue();
-				// go back to board file
-				if (cardAt(card1).pointValue() + cardAt(card2).pointValue() == 11) {
-					return true;
-				}
-			}
-		}
-		return false;
-	}	
+	}
 
 	/**
 	 * Check for a JQK in the selected cards.
@@ -138,31 +91,5 @@ public class ElevensBoard extends Board {
 	 */
 	private boolean containsJQK(List<Integer> selectedCards) {
 		/* *** TO BE IMPLEMENTED IN ACTIVITY 9 *** */
-		// cards can be any order
-		boolean foundJ = false;
-		boolean foundQ = false;
-		boolean foundK = false;
-
-//		for (int i = 0; i < 3; i++) {
-//		Error: The total cards can be greater than 3, should use selectedCards.size() instead
-		
-		for (int i = 0; i < selectedCards.size(); i++) {
-						
-			if (cardAt(selectedCards.get(i).intValue()).rank().equals("jack")) {
-				foundJ = true;
-			}
-			if (cardAt(selectedCards.get(i).intValue()).rank().equals("queen")) {
-				foundQ = true;
-			}
-			if (cardAt(selectedCards.get(i).intValue()).rank().equals("king")) {
-				foundK = true;
-			}
-		}
-		if (foundJ && foundQ && foundK) {
-			return true;
-		}
-		else {
-			return false;
-		}	
 	}
 }

@@ -1,7 +1,10 @@
-package activity9;
+package activity8;
 
 import java.util.List;
 import java.util.ArrayList;
+
+import activity9.Card;
+import activity9.Deck;
 
 /**
  * This class represents a Board that can be used in a collection
