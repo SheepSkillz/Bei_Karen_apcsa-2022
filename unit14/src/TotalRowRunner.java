@@ -6,7 +6,12 @@ public class TotalRowRunner
 {
 	public static void main( String args[] ) throws Exception
 	{
-		//add code here			
+		//add code here	
+		// do you have to initialize a matrix before passing it as a parameter?
+		System.out.println("Row totals are :: " + TotalRow.getRowTotals(new int[][]{{1,2,3},{5,5,5,5}}));
+		System.out.println("Row totals are :: " + TotalRow.getRowTotals(new int[][]{{1,2,3},{5},{1},{2,2}}));
+		System.out.println("Row totals are :: " + TotalRow.getRowTotals(new int[][]{{1,2},{5,5},{5,5},{4,5,6,7},{123124,12312}}));
+		
 	}
 }
 
