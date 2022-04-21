@@ -166,7 +166,7 @@ public class Pong extends Canvas implements KeyListener, Runnable
 				
 //				else {
 //					ball.setXSpeed(-ball.getXSpeed());
-//				}
+//				}///////////////////////////////////////////
 			}
 		
 	
