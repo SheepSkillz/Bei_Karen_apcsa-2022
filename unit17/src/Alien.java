@@ -66,7 +66,7 @@ public class Alien extends MovingThing
 		   super.setX(getX() + getSpeed());
 		   if(getX() > getWidth()) {
 			   speed = -speed;
-			   super.setY(getY() + 25);
+			   super.setY(getY() + 45);
 		   }
 	   }
 	}

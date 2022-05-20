@@ -49,7 +49,7 @@ public class OuterSpace extends Canvas implements KeyListener, Runnable
 //		Alien alien5 = new Alien(350, 200, 30, 30, 1);
 //		Alien alien6 = new Alien(400, 200, 30, 30, 1);
 		ammo = new Ammo(ship.getX(), ship.getY(), 20);
-		horde = new AlienHorde(100);
+		horde = new AlienHorde(20);
 //		horde.add(alienOne);
 //		horde.add(alienTwo);
 //		horde.add(alien3);
@@ -82,9 +82,7 @@ public class OuterSpace extends Canvas implements KeyListener, Runnable
 
 	public void paint( Graphics window )
 	{
-		if (end == true) {
-			return;
-		}
+		
 		//set up the double buffering to make the game animation nice and smooth
 		Graphics2D twoDGraph = (Graphics2D)window;
 
@@ -113,8 +111,9 @@ public class OuterSpace extends Canvas implements KeyListener, Runnable
 		//ammo.draw(graphToBack);
 		
 		
+		
 		//collision detection
-		//shots.cleanEmUp();
+
 		//horde.removeDeadOnes(shots.getList());
 
 		if(keys[0] == true)
@@ -141,7 +140,12 @@ public class OuterSpace extends Canvas implements KeyListener, Runnable
 			ammo = new Ammo(ship.getX(), ship.getY(), 2);
 			shots.add(ammo);
 			//ammo.draw(graphToBack);
+			
+			
+			shots.cleanEmUp();
 		}
+		
+		
 		
 		shots.moveEmAll();
 //		if (ammo != null) {
@@ -150,10 +154,6 @@ public class OuterSpace extends Canvas implements KeyListener, Runnable
 	//			ammo.draw(graphToBack);
 //			}
 //		}
-		
-		
-		
-		horde.removeDeadOnes(shots.getList());
 
 //		if (ammo != null && ammo.getX() >= alienOne.getX() && ammo.getX() <= alienOne.getX() + alienOne.getWidth()
 //			&& ammo.getY() == alienOne.getY() + alienOne.getHeight()) {
@@ -176,6 +176,8 @@ public class OuterSpace extends Canvas implements KeyListener, Runnable
 //			// there is a collision between bullets and alienTwo
 //		}
 		
+		horde.removeDeadOnes(shots.getList());
+		
 		for (int i = 0; i < horde.getAliens().size(); i++) {
 			Alien alien = horde.getAliens().get(i);
 			if ((alien.getX() <= ship.getX() + ship.getWidth() && alien.getX() >= ship.getX())|| 
@@ -190,6 +192,13 @@ public class OuterSpace extends Canvas implements KeyListener, Runnable
 					//System.exit(0);
 				}	
 			}
+		}
+		
+		if (horde.getAliens().size() == 0) {
+			graphToBack.setColor(Color.blue);
+			graphToBack.fillRect(0,0,800,600);
+			graphToBack.setColor(Color.white);
+			graphToBack.drawString("You win!", 300, 400);
 		}
 		
 		twoDGraph.drawImage(back, null, 0, 0);
@@ -258,7 +267,7 @@ public class OuterSpace extends Canvas implements KeyListener, Runnable
    	{
    		while(true)
    		{
-   		   Thread.currentThread().sleep(10);
+   		   Thread.currentThread().sleep(5);
             repaint();
          }
       }catch(Exception e)

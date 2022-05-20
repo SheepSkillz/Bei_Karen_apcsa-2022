@@ -18,8 +18,8 @@ public class AlienHorde
 	{
 		aliens = new ArrayList<Alien>(size);
 		for (int i = 0; i < size; i++) {
-			Alien a = new Alien(0 + 50*i, 0, 30, 30, 1);
-			aliens.add(a);
+			Alien a = new Alien(50*i, 0, 30, 30, 1);
+			add(a);
 		}
 	}
 
@@ -34,7 +34,7 @@ public class AlienHorde
 			if (a.getX() + a.getWidth() >= 800|| a.getX() <= 0) {
 				// shift down
 				// speed = neg
-				a.setY(a.getY()  + 25);
+				a.setY(a.getY()  + 45);
 				a.setSpeed(-a.getSpeed());
 			}
 			a.draw(window);

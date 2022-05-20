@@ -44,8 +44,8 @@ public class Bullets
 	public void cleanEmUp()
 	{
 		// remove from the screen
-		for (int i = 0; i < ammo.size(); i++) {
-			ammo.remove(0);
+		for (int i = 0; i < ammo.size()-1; i++) {
+			ammo.remove(i);
 		}
 	}
 
