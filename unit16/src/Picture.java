@@ -493,6 +493,64 @@ public class Picture extends SimplePicture
 //    }
   }
   
+  /* The encode algorithm sums all the digits of the blue RGB value and if the sum is divisible by 2. 
+   * If the pixel on the secret image is black and the sum isn't divisible by 2, then 1 is added to the ones digit until it is. 
+   * All the white pixels should have blue RGB digit sums that are odd, so add 1 to the background image ones digit until odd. 
+   * To decode, the algorithm iterates through all the pixels to check if the digit sum is divisible by 2. 
+   * If so, the pixel is set to black; otherwise, it becomes white. */
+  public void encode(Picture secretPic) {
+	  Pixel[][] pixels = this.getPixels2D();
+	  Pixel[][] secretPixels = secretPic.getPixels2D();
+	  for (int i = 0; i < pixels.length; i++) {
+		  for (int j = 0; j < pixels[i].length; j++) {
+			  // secret pixels are white 
+			 if (secretPixels[i][j].getBlue() >= 230 && secretPixels[i][j].getRed() >= 230 && secretPixels[i][j].getGreen() >= 230) {
+				// digit sum is even but should be odd
+				while (((pixels[i][j].getBlue() / 100 + (pixels[i][j].getBlue() / 10) % 10 + pixels[i][j].getBlue() % 10) % 2) == 0) {
+					// add one to make it even
+					//System.out.println("not black " + i + " " + j);
+					// subtract one if it goes past 255 bc creates infinite loop
+					if (pixels[i][j].getBlue() == 255) {
+						pixels[i][j].setBlue(pixels[i][j].getBlue() - 1);
+					}
+					else {
+						pixels[i][j].setBlue(pixels[i][j].getBlue() + 1);
+					}
+				}	
+			 }		  
+			 else  { // secretPixels aren't white
+				// digit sum is odd
+				while (((pixels[i][j].getBlue() / 100 + (pixels[i][j].getBlue() / 10) % 10 + pixels[i][j].getBlue() % 10) % 2) != 0) {
+					// add one to make it even
+					// don't have 255 problem because digits sum to 12 so won't even enter loop
+					//System.out.println("black " + i + " " + j);
+					pixels[i][j].setBlue(pixels[i][j].getBlue() + 1);
+				}
+			 } 
+		  } // end j loop
+	  } // end i loop
+  } // end method
+  
+  public Picture decode() {
+	  Pixel[][] pixels = this.getPixels2D();
+	  Picture messagePicture = new Picture(this.getHeight(), this.getWidth());
+	  Pixel[][] messagePixels = messagePicture.getPixels2D();
+	  
+	  for (int i = 0; i < pixels.length; i++) {
+		  for (int j = 0; j < pixels[i].length; j++) {
+			  // have odd digit sum -> should be white
+			  if ((pixels[i][j].getBlue() / 100 + pixels[i][j].getBlue() / 10 % 10 + pixels[i][j].getBlue() % 10) % 2 != 0) {
+				  messagePixels[i][j].setColor(Color.white);
+			  }
+			  else { // digit sum is even -> should be black
+				  messagePixels[i][j].setColor(Color.black);
+			  }
+		  }
+	  }
+	  
+	  return messagePicture;
+	  
+  }
   
   /* Main method for testing - each class in Java can have a main 
    * method 

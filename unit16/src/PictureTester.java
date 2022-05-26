@@ -158,6 +158,26 @@ public class PictureTester
     swan.explore();
   }
   
+  public static void testEncode()
+  {
+	Picture beach = new Picture("C:\\Users\\kbei5\\Desktop\\apcsa\\Bei_Karen_apcsa-2022\\unit16\\src\\images\\beach.jpg"); 
+	Picture test = new Picture("C:\\Users\\kbei5\\Desktop\\apcsa\\Bei_Karen_apcsa-2022\\unit16\\src\\msg.jpg"); 
+	beach.explore();
+	test.explore();
+	beach.encode(test);
+	beach.explore();
+  }
+  
+  public static void testDecode() {
+	Picture beach = new Picture("C:\\Users\\kbei5\\Desktop\\apcsa\\Bei_Karen_apcsa-2022\\unit16\\src\\images\\beach.jpg"); 
+	Picture test = new Picture("C:\\Users\\kbei5\\Desktop\\apcsa\\Bei_Karen_apcsa-2022\\unit16\\src\\msg.jpg"); 
+	beach.explore();
+	test.explore();
+	beach.encode(test);
+	beach.explore();
+	beach.decode().explore();
+  }
+  
   /** Main method for testing.  Every class can have a main
     * method in Java */
   public static void main(String[] args)
@@ -186,6 +206,8 @@ public class PictureTester
     //testMyCollage();
     //testEdgeDetection();
 	  
+	//testEncode();
+	testDecode();
 	  
     //testEdgeDetection2();
     //testChromakey();
